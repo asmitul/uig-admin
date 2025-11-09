@@ -19,6 +19,19 @@ After you click the `Deploy` button above, you'll want to have standalone copy o
 1. First [clone the repo](#clone) if you have not done so already
 2. `cd my-project && cp .env.example .env` to copy the example environment variables. You'll need to add the `MONGODB_URI` from your Cloud project to your `.env` if you want to use S3 storage and the MongoDB database that was created for you.
 
+### Cloudflare R2 configuration
+
+Update the copied `.env` file with your Cloudflare R2 credentials before starting the app:
+
+```
+R2_ACCESS_KEY_ID=<your access key ID>
+R2_SECRET_ACCESS_KEY=<your secret access key>
+R2_ENDPOINT=https://<account-id>.r2.cloudflarestorage.com
+R2_BUCKET=your-bucket-name
+```
+
+All four variables are required for the Payload Cloud Storage plugin to connect to R2. Locally, you can leave them blank to fall back to the default disk adapter.
+
 3. `pnpm install && pnpm dev` to install dependencies and start the dev server
 4. open `http://localhost:3000` to open the app in your browser
 

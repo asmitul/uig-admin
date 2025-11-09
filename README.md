@@ -50,7 +50,11 @@ See the [Collections](https://payloadcms.com/docs/configuration/collections) doc
 
 - #### Media
 
-  This is the uploads enabled collection. It features pre-configured sizes, focal point and manual resizing to help you manage your pictures.
+  Uploads collection dedicated to pronunciation audio. Files are stored on Cloudflare R2 through the Payload S3 storage adapter.
+
+- #### Words
+
+  Stores Uyghur vocabulary entries, translations, and links each record to an optional `pronunciation` upload from the `media` collection.
 
 ### Docker
 
@@ -65,3 +69,9 @@ That's it! The Docker instance will help you get up and running quickly while al
 ## Questions
 
 If you have any issues or questions, reach out to us on [Discord](https://discord.com/invite/payload) or start a [GitHub discussion](https://github.com/payloadcms/payload/discussions).
+
+## Cloudflare R2 configuration
+
+1. Create an R2 bucket and API token with read/write access. Note the account ID, bucket name, public `*.r2.dev` URL, access key ID, and secret.
+2. Copy `.env.example` to `.env` and fill in the new `R2_*` variables (`R2_ACCOUNT_ID`, `R2_BUCKET`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_ENDPOINT`, `R2_PUBLIC_BASE_URL`).
+3. Restart `pnpm dev` after editing env vars. Run `pnpm generate:types` whenever you change Payload collections.

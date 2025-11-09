@@ -10,7 +10,19 @@ export const Media: CollectionConfig = {
       name: 'alt',
       type: 'text',
       required: true,
+      label: 'Description',
     },
   ],
-  upload: true,
+  upload: {
+    mimeTypes: [
+      'audio/mpeg',
+      'audio/mp3',
+      'audio/mp4',
+      'audio/aac',
+      'audio/x-m4a',
+      'audio/ogg',
+      'audio/wav',
+      'audio/webm',
+    ],
+  },
 }

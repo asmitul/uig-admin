@@ -15,6 +15,9 @@ export const Media: CollectionConfig = {
   ],
   upload: {
     mimeTypes: [
+      'audio/3gpp',
+      'video/3gpp',
+      'audio/amr',
       'audio/mpeg',
       'audio/mp3',
       'audio/mp4',

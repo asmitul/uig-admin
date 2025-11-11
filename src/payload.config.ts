@@ -24,7 +24,9 @@ if (isR2Configured) {
   const r2Bucket = process.env.R2_BUCKET as string
   const r2Endpoint =
     process.env.R2_ENDPOINT ||
-    (process.env.R2_ACCOUNT_ID ? `https://${process.env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com` : '')
+    (process.env.R2_ACCOUNT_ID
+      ? `https://${process.env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com`
+      : '')
   const normalizedEndpoint = stripTrailingSlash(r2Endpoint)
   const publicBaseURL = stripTrailingSlash(
     process.env.R2_PUBLIC_BASE_URL || `${normalizedEndpoint}/${r2Bucket}`,
@@ -70,17 +72,20 @@ const Words: CollectionConfig = {
       type: 'text',
       required: true,
       label: 'Uyghur Word',
+      index: true,
     },
     {
       name: 'word_english',
       type: 'text',
       required: true,
       label: 'English Translation',
+      index: true,
     },
     {
       name: 'word_turkish',
       type: 'text',
       label: 'Turkish Translation',
+      index: true,
     },
     {
       name: 'pronunciation',
